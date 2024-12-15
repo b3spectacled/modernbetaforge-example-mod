@@ -1,0 +1,75 @@
+// Based on 'modern-forge-1.12-template' by by github@quat1024
+
+buildscript {
+    repositories {
+        maven { url = 'https://files.minecraftforge.net/maven' }
+        mavenCentral()
+    }
+    dependencies {
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1+', changing: true
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'eclipse'
+apply plugin: 'java'
+
+version = projectMCVersion + '-' + projectVersion
+group = projectGroup
+archivesBaseName = projectName
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(8)
+compileJava {
+    sourceCompatibility = '8'
+    targetCompatibility = '8'
+}
+
+repositories {
+    maven { url = 'https://www.cursemaven.com' }
+}
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2860'
+    
+    implementation fg.deobf('curse.maven:modern-beta-forge-805719:5992098')
+}
+
+minecraft {
+    mappings channel: 'stable', version: '39-1.12'
+    
+    runs {
+        client {
+            workingDirectory file("./run")
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            property 'forge.logging.console.level', 'debug'
+            mods { "${project.name}" { source sourceSets.main } }
+        }
+
+        server {
+            workingDirectory file("./run/server")
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+            property 'forge.logging.console.level', 'debug'
+            mods { "${project.name}" { source sourceSets.main } }
+        }
+    }
+    
+    accessTransformers {
+        file('src/main/resources/META-INF/' + projectATFile)
+    }
+}
+
+processResources {
+    inputs.property 'version', project.version
+  
+    filesMatching('mcmod.info') {
+      expand 'version': project.version
+    }
+}
+
+jar {
+    manifest.attributes(
+        'FMLAT': projectATFile
+    )
+}
+
+sourceSets.all { it.output.resourcesDir = it.output.classesDirs.getFiles().iterator().next() }

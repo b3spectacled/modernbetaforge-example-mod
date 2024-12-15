@@ -1,0 +1,5 @@
+# FlatChunkSource
+createWorld.customize.custom.chunkSource.flat=Flat
+
+# CheckerboardBiomeSource
+createWorld.customize.custom.biomeSource.checkerboard=Checkerboard

@@ -1,19 +1,24 @@
 package mod.bespectacled.modernbetaforgeexamplemod.world.biome.source;
 
 import mod.bespectacled.modernbetaforge.api.world.biome.BiomeSource;
-import net.minecraft.init.Biomes;
+import mod.bespectacled.modernbetaforge.world.setting.ModernBetaGeneratorSettings;
+import mod.bespectacled.modernbetaforgeexamplemod.ModernBetaExampleMod;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.storage.WorldInfo;
 
 public class CheckerboardBiomeSource extends BiomeSource {
+    public static final String BIOME_0_ID = "checkerboardBiome0";
+    public static final String BIOME_1_ID = "checkerboardBiome1";
+    
     private final Biome biome0;
     private final Biome biome1;
 
     public CheckerboardBiomeSource(WorldInfo worldInfo) {
         super(worldInfo);
         
-        this.biome0 = Biomes.PLAINS;
-        this.biome1 = Biomes.DESERT;
+        ModernBetaGeneratorSettings settings = ModernBetaGeneratorSettings.build(worldInfo.getGeneratorOptions());
+        this.biome0 = settings.getCustomBiome(ModernBetaExampleMod.createRegistryKey(BIOME_0_ID));
+        this.biome1 = settings.getCustomBiome(ModernBetaExampleMod.createRegistryKey(BIOME_1_ID));
     }
 
     @Override

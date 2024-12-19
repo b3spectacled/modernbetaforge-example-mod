@@ -1,5 +1,11 @@
 # FlatChunkSource
-createWorld.customize.custom.chunkSource.flat=Flat
+createWorld.customize.custom.chunkSource.modernbetaforgeexamplemod.flat=Flat
 
 # CheckerboardBiomeSource
-createWorld.customize.custom.biomeSource.checkerboard=Checkerboard
+createWorld.customize.custom.biomeSource.modernbetaforgeexamplemod.checkerboard=Checkerboard
+
+# Custom Settings
+createWorld.customize.custom.modernbetaforgeexamplemod=Modern Beta Example Mod
+createWorld.customize.custom.modernbetaforgeexamplemod.flatheight=Flat Height
+createWorld.customize.custom.modernbetaforgeexamplemod.checkerboardbiome0=Checkboard Biome 1
+createWorld.customize.custom.modernbetaforgeexamplemod.checkerboardbiome1=Checkboard Biome 2

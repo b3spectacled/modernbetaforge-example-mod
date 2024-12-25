@@ -3,11 +3,13 @@ package mod.bespectacled.modernbetaforgeexamplemod.world.biome.source;
 import mod.bespectacled.modernbetaforge.api.world.biome.BiomeSource;
 import mod.bespectacled.modernbetaforge.world.setting.ModernBetaGeneratorSettings;
 import mod.bespectacled.modernbetaforgeexamplemod.ModernBetaExampleMod;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 
 public class CheckerboardBiomeSource extends BiomeSource {
-    public static final String BIOME_0_ID = "checkerboardBiome0";
-    public static final String BIOME_1_ID = "checkerboardBiome1";
+    public static final ResourceLocation REGISTRY_KEY = ModernBetaExampleMod.createRegistryKey("checkerboard");
+    public static final ResourceLocation BIOME_0_KEY = ModernBetaExampleMod.createRegistryKey("checkerboardBiome0");
+    public static final ResourceLocation BIOME_1_KEY = ModernBetaExampleMod.createRegistryKey("checkerboardBiome1");
     
     private final Biome biome0;
     private final Biome biome1;
@@ -15,8 +17,8 @@ public class CheckerboardBiomeSource extends BiomeSource {
     public CheckerboardBiomeSource(long seed, ModernBetaGeneratorSettings settings) {
         super(seed, settings);
 
-        this.biome0 = settings.getCustomBiome(ModernBetaExampleMod.createRegistryKey(BIOME_0_ID));
-        this.biome1 = settings.getCustomBiome(ModernBetaExampleMod.createRegistryKey(BIOME_1_ID));
+        this.biome0 = settings.getCustomBiome(BIOME_0_KEY);
+        this.biome1 = settings.getCustomBiome(BIOME_1_KEY);
     }
 
     @Override

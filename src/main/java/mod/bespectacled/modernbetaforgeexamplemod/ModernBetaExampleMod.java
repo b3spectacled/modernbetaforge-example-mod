@@ -6,14 +6,13 @@ import org.apache.logging.log4j.Logger;
 
 import mod.bespectacled.modernbetaforge.api.registry.ModernBetaRegistries;
 import mod.bespectacled.modernbetaforge.api.world.setting.BiomeProperty;
-import mod.bespectacled.modernbetaforge.api.world.setting.IntProperty;
-import mod.bespectacled.modernbetaforge.api.world.setting.PropertyGuiType;
 import mod.bespectacled.modernbetaforgeexamplemod.world.biome.source.CheckerboardBiomeSource;
 import mod.bespectacled.modernbetaforgeexamplemod.world.chunk.source.FlatChunkSource;
 import net.minecraft.init.Biomes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
@@ -40,26 +39,30 @@ public class ModernBetaExampleMod {
     public static ResourceLocation createRegistryKey(String name) {
         return new ResourceLocation(MODID, name);
     }
+    
+    @SidedProxy(
+        clientSide = "mod.bespectacled.modernbetaforgeexamplemod.ModernBetaExampleModClientProxy",
+        serverSide = "mod.bespectacled.modernbetaforgeexamplemod.ModernBetaExampleModServerProxy"
+    )
+    public static ModernBetaExampleModProxy proxy;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) { }
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
-        ModernBetaRegistries.CHUNK_SOURCE.register(createRegistryKey("flat"), FlatChunkSource::new);
-        ModernBetaRegistries.BIOME_SOURCE.register(createRegistryKey("checkerboard"), CheckerboardBiomeSource::new);
-        
+        ModernBetaRegistries.CHUNK_SOURCE.register(FlatChunkSource.REGISTRY_KEY, FlatChunkSource::new);
+        ModernBetaRegistries.BIOME_SOURCE.register(CheckerboardBiomeSource.REGISTRY_KEY, CheckerboardBiomeSource::new);
+
         ModernBetaRegistries.PROPERTY.register(
-            createRegistryKey(FlatChunkSource.FLAT_HEIGHT),
-            new IntProperty(64, 0, 255, PropertyGuiType.SLIDER)
-        );
-        ModernBetaRegistries.PROPERTY.register(
-            createRegistryKey(CheckerboardBiomeSource.BIOME_0_ID),
+            CheckerboardBiomeSource.BIOME_0_KEY,
             new BiomeProperty(Biomes.DESERT.getRegistryName())
         );
         ModernBetaRegistries.PROPERTY.register(
-            createRegistryKey(CheckerboardBiomeSource.BIOME_1_ID),
+            CheckerboardBiomeSource.BIOME_1_KEY,
             new BiomeProperty(Biomes.PLAINS.getRegistryName())
         );
+        
+        proxy.init();
     }
 }

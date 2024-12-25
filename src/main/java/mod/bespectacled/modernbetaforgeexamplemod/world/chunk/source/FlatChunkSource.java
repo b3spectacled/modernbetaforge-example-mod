@@ -9,20 +9,21 @@ import mod.bespectacled.modernbetaforge.world.biome.ModernBetaBiomeProvider;
 import mod.bespectacled.modernbetaforge.world.setting.ModernBetaGeneratorSettings;
 import mod.bespectacled.modernbetaforgeexamplemod.ModernBetaExampleMod;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.structure.StructureComponent;
 
 public class FlatChunkSource extends ChunkSource {
-    public static final String FLAT_HEIGHT = "flatHeight";
+    public static final ResourceLocation REGISTRY_KEY = ModernBetaExampleMod.createRegistryKey("flat");
     
     private final int height;
     
     public FlatChunkSource(long seed, ModernBetaGeneratorSettings settings) {
         super(seed, settings);
         
-        this.height = settings.getCustomInt(ModernBetaExampleMod.createRegistryKey(FLAT_HEIGHT));
+        this.height = settings.height;
     }
     
     @Override

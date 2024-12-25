@@ -1,6 +1,6 @@
 [
 {
-  "modid": "modernbetaforge-example-mod",
+  "modid": "modernbetaforgeexamplemod",
   "name": "Modern Beta Forge Example Mod",
   "description": "Modern Beta for Forge 1.12.2.",
   "version": "${version}",

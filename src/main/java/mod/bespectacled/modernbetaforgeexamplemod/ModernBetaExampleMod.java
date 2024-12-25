@@ -10,6 +10,7 @@ import mod.bespectacled.modernbetaforge.api.world.setting.IntProperty;
 import mod.bespectacled.modernbetaforge.api.world.setting.PropertyGuiType;
 import mod.bespectacled.modernbetaforgeexamplemod.world.biome.source.CheckerboardBiomeSource;
 import mod.bespectacled.modernbetaforgeexamplemod.world.chunk.source.FlatChunkSource;
+import net.minecraft.init.Biomes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -45,8 +46,8 @@ public class ModernBetaExampleMod {
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
-        ModernBetaRegistries.CHUNK.register(createRegistryKey("flat"), FlatChunkSource::new);
-        ModernBetaRegistries.BIOME.register(createRegistryKey("checkerboard"), CheckerboardBiomeSource::new);
+        ModernBetaRegistries.CHUNK_SOURCE.register(createRegistryKey("flat"), FlatChunkSource::new);
+        ModernBetaRegistries.BIOME_SOURCE.register(createRegistryKey("checkerboard"), CheckerboardBiomeSource::new);
         
         ModernBetaRegistries.PROPERTY.register(
             createRegistryKey(FlatChunkSource.FLAT_HEIGHT),
@@ -54,11 +55,11 @@ public class ModernBetaExampleMod {
         );
         ModernBetaRegistries.PROPERTY.register(
             createRegistryKey(CheckerboardBiomeSource.BIOME_0_ID),
-            new BiomeProperty("minecraft:desert")
+            new BiomeProperty(Biomes.DESERT.getRegistryName())
         );
         ModernBetaRegistries.PROPERTY.register(
             createRegistryKey(CheckerboardBiomeSource.BIOME_1_ID),
-            new BiomeProperty("minecraft:forest")
+            new BiomeProperty(Biomes.PLAINS.getRegistryName())
         );
     }
 }

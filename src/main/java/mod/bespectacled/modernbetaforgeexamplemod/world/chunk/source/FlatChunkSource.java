@@ -2,9 +2,6 @@ package mod.bespectacled.modernbetaforgeexamplemod.world.chunk.source;
 
 import java.util.List;
 
-import org.apache.logging.log4j.Level;
-
-import mod.bespectacled.modernbetaforge.ModernBeta;
 import mod.bespectacled.modernbetaforge.api.world.chunk.source.ChunkSource;
 import mod.bespectacled.modernbetaforge.util.BlockStates;
 import mod.bespectacled.modernbetaforge.util.chunk.HeightmapChunk.Type;

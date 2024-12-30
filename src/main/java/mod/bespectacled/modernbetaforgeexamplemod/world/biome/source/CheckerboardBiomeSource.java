@@ -17,8 +17,8 @@ public class CheckerboardBiomeSource extends BiomeSource {
     public CheckerboardBiomeSource(long seed, ModernBetaGeneratorSettings settings) {
         super(seed, settings);
 
-        this.biome0 = settings.getCustomBiome(BIOME_0_KEY);
-        this.biome1 = settings.getCustomBiome(BIOME_1_KEY);
+        this.biome0 = settings.getBiomeProperty(BIOME_0_KEY);
+        this.biome1 = settings.getBiomeProperty(BIOME_1_KEY);
     }
 
     @Override

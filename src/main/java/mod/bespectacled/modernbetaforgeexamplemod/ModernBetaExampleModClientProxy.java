@@ -8,8 +8,8 @@ public class ModernBetaExampleModClientProxy implements ModernBetaExampleModProx
     @Override
     public void init() { 
         // Fetch GUI predicate for height setting and allow it to be used for FlatChunkSource
-        ModernBetaClientRegistries.GUI_PREDICATE.get(GuiPredicate.HEIGHT).or(factory -> 
-            factory.chunkSource.equals(FlatChunkSource.REGISTRY_KEY.toString())
+        ModernBetaClientRegistries.GUI_PREDICATE.get(GuiPredicate.HEIGHT).or(settings -> 
+            settings.chunkSource.equals(FlatChunkSource.REGISTRY_KEY.toString())
         );
     }
 }

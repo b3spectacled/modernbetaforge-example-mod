@@ -2,10 +2,11 @@ package mod.bespectacled.modernbetaforgeexamplemod.world.chunk.source;
 
 import java.util.List;
 
+import mod.bespectacled.modernbetaforge.api.registry.ModernBetaRegistries;
+import mod.bespectacled.modernbetaforge.api.world.biome.source.BiomeSource;
 import mod.bespectacled.modernbetaforge.api.world.chunk.source.ChunkSource;
 import mod.bespectacled.modernbetaforge.util.BlockStates;
 import mod.bespectacled.modernbetaforge.util.chunk.HeightmapChunk.Type;
-import mod.bespectacled.modernbetaforge.world.biome.ModernBetaBiomeProvider;
 import mod.bespectacled.modernbetaforge.world.setting.ModernBetaGeneratorSettings;
 import mod.bespectacled.modernbetaforgeexamplemod.ModernBetaExampleMod;
 import net.minecraft.block.state.IBlockState;
@@ -19,11 +20,13 @@ public class FlatChunkSource extends ChunkSource {
     public static final ResourceLocation REGISTRY_KEY = ModernBetaExampleMod.createRegistryKey("flat");
     
     private final int height;
+    private final BiomeSource biomeSource;
     
     public FlatChunkSource(long seed, ModernBetaGeneratorSettings settings) {
         super(seed, settings);
         
         this.height = settings.height;
+        this.biomeSource = ModernBetaRegistries.BIOME_SOURCE.get(new ResourceLocation(settings.biomeSource)).apply(seed, settings);
     }
     
     @Override
@@ -32,7 +35,7 @@ public class FlatChunkSource extends ChunkSource {
     }
     
     @Override
-    public void provideInitialChunk(World world, ChunkPrimer chunkPrimer, int chunkX, int chunkZ) {
+    public void provideInitialChunk(ChunkPrimer chunkPrimer, int chunkX, int chunkZ) {
         int startX = chunkX << 4;
         int startZ = chunkZ << 4;
         
@@ -43,7 +46,7 @@ public class FlatChunkSource extends ChunkSource {
             
             for (int localX = 0; localX < 16; ++localX) {
                 int x = startX + localX;
-                Biome biome = ((ModernBetaBiomeProvider)world.getBiomeProvider()).getBiomeSource().getBiome(x, z);
+                Biome biome = this.biomeSource.getBiome(x, z);
                 
                 for (int y = 0; y <= this.worldHeight; ++y) {
                     IBlockState blockState = BlockStates.AIR;
@@ -65,13 +68,13 @@ public class FlatChunkSource extends ChunkSource {
     }
 
     @Override
-    public void provideProcessedChunk(World world, ChunkPrimer chunkPrimer, int chunkX, int chunkZ, List<StructureComponent> structureComponents) { }
+    public void provideProcessedChunk(ChunkPrimer chunkPrimer, int chunkX, int chunkZ, List<StructureComponent> structureComponents) { }
 
     @Override
     public void provideSurface(World world, Biome[] biomes, ChunkPrimer chunkPrimer, int chunkX, int chunkZ) { }
 
     @Override
-    public int getHeight(World world, int x, int z, Type type) {
+    public int getHeight(int x, int z, Type type) {
         return this.height;
     }
 }

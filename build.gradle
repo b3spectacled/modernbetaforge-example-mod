@@ -31,7 +31,7 @@ repositories {
 dependencies {
     minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2860'
     
-    implementation fg.deobf('curse.maven:modern-beta-forge-805719:6107624')
+    implementation fg.deobf('curse.maven:modern-beta-forge-805719:6107909')
 }
 
 minecraft {

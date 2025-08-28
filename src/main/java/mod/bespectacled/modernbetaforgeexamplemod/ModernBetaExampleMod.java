@@ -24,11 +24,11 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
     dependencies = ModernBetaExampleMod.MODERN_BETA_MODID
 )
 public class ModernBetaExampleMod {
-    public static final String MODID = "modernbetaforgeexamplemod";
+    public static final String MODID = "modernbetaexample";
     public static final String NAME = "Modern Beta Forge Example Mod";
     public static final String VERSION = "1.0.0.0";
     public static final String MCVERSION = "1.12.2";
-    public static final String MODERN_BETA_MODID = "required-after:modernbetaforge@[1.5.0.0,1.6.0.0);";
+    public static final String MODERN_BETA_MODID = "required-after:modernbetaforge@[1.8.0.0,1.9.0.0);";
 
     private static final Logger LOGGER = LogManager.getLogger(MODID);
     

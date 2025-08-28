@@ -1,11 +1,11 @@
 # FlatChunkSource
-createWorld.customize.custom.chunkSource.modernbetaforgeexamplemod.flat=Flat
+createWorld.customize.custom.modernbetaforge.chunkSource.modernbetaexample.flat=Flat
 
 # CheckerboardBiomeSource
-createWorld.customize.custom.biomeSource.modernbetaforgeexamplemod.checkerboard=Checkerboard
+createWorld.customize.custom.modernbetaforge.biomeSource.modernbetaexample.checkerboard=Checkerboard
 
 # Custom Settings
-createWorld.customize.custom.modernbetaforgeexamplemod=Modern Beta Example Mod
-createWorld.customize.custom.modernbetaforgeexamplemod.flatheight=Flat Height
-createWorld.customize.custom.modernbetaforgeexamplemod.checkerboardbiome0=Checkboard Biome 1
-createWorld.customize.custom.modernbetaforgeexamplemod.checkerboardbiome1=Checkboard Biome 2
+createWorld.customize.custom.modernbetaexample=Modern Beta Example Mod
+createWorld.customize.custom.modernbetaexample.flatheight=Flat Height
+createWorld.customize.custom.modernbetaexample.checkerboardbiome0=Checkboard Biome 1
+createWorld.customize.custom.modernbetaexample.checkerboardbiome1=Checkboard Biome 2

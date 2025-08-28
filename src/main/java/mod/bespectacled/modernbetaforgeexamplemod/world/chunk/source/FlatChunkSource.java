@@ -26,7 +26,7 @@ public class FlatChunkSource extends ChunkSource {
         super(seed, settings);
         
         this.height = settings.height;
-        this.biomeSource = ModernBetaRegistries.BIOME_SOURCE.get(new ResourceLocation(settings.biomeSource)).apply(seed, settings);
+        this.biomeSource = ModernBetaRegistries.BIOME_SOURCE.get(settings.biomeSource).apply(seed, settings);
     }
     
     @Override

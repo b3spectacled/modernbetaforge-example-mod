@@ -1,14 +1,14 @@
-package mod.bespectacled.modernbetaforgeexamplemod.world.chunk.source;
+package mod.bespectacled.modernbetaexample.world.chunk.source;
 
 import java.util.List;
 
+import mod.bespectacled.modernbetaexample.ModernBetaExampleMod;
 import mod.bespectacled.modernbetaforge.api.registry.ModernBetaRegistries;
 import mod.bespectacled.modernbetaforge.api.world.biome.source.BiomeSource;
 import mod.bespectacled.modernbetaforge.api.world.chunk.source.ChunkSource;
 import mod.bespectacled.modernbetaforge.util.BlockStates;
 import mod.bespectacled.modernbetaforge.util.chunk.HeightmapChunk.Type;
 import mod.bespectacled.modernbetaforge.world.setting.ModernBetaGeneratorSettings;
-import mod.bespectacled.modernbetaforgeexamplemod.ModernBetaExampleMod;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;

@@ -1,8 +1,8 @@
-package mod.bespectacled.modernbetaforgeexamplemod;
+package mod.bespectacled.modernbetaexample;
 
+import mod.bespectacled.modernbetaexample.world.chunk.source.FlatChunkSource;
 import mod.bespectacled.modernbetaforge.api.client.gui.GuiPredicate;
 import mod.bespectacled.modernbetaforge.api.registry.ModernBetaClientRegistries;
-import mod.bespectacled.modernbetaforgeexamplemod.world.chunk.source.FlatChunkSource;
 
 public class ModernBetaExampleModClientProxy implements ModernBetaExampleModProxy {
     @Override

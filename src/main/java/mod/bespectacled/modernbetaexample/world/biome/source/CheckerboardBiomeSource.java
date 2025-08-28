@@ -1,8 +1,8 @@
-package mod.bespectacled.modernbetaforgeexamplemod.world.biome.source;
+package mod.bespectacled.modernbetaexample.world.biome.source;
 
+import mod.bespectacled.modernbetaexample.ModernBetaExampleMod;
 import mod.bespectacled.modernbetaforge.api.world.biome.source.BiomeSource;
 import mod.bespectacled.modernbetaforge.world.setting.ModernBetaGeneratorSettings;
-import mod.bespectacled.modernbetaforgeexamplemod.ModernBetaExampleMod;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.Biome;
 

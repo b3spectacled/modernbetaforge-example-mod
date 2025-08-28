@@ -1,13 +1,13 @@
-package mod.bespectacled.modernbetaforgeexamplemod;
+package mod.bespectacled.modernbetaexample;
 
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import mod.bespectacled.modernbetaexample.world.biome.source.CheckerboardBiomeSource;
+import mod.bespectacled.modernbetaexample.world.chunk.source.FlatChunkSource;
 import mod.bespectacled.modernbetaforge.api.property.BiomeProperty;
 import mod.bespectacled.modernbetaforge.api.registry.ModernBetaRegistries;
-import mod.bespectacled.modernbetaforgeexamplemod.world.biome.source.CheckerboardBiomeSource;
-import mod.bespectacled.modernbetaforgeexamplemod.world.chunk.source.FlatChunkSource;
 import net.minecraft.init.Biomes;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Mod;
@@ -41,8 +41,8 @@ public class ModernBetaExampleMod {
     }
     
     @SidedProxy(
-        clientSide = "mod.bespectacled.modernbetaforgeexamplemod.ModernBetaExampleModClientProxy",
-        serverSide = "mod.bespectacled.modernbetaforgeexamplemod.ModernBetaExampleModServerProxy"
+        clientSide = "mod.bespectacled.modernbetaexample.ModernBetaExampleModClientProxy",
+        serverSide = "mod.bespectacled.modernbetaexample.ModernBetaExampleModServerProxy"
     )
     public static ModernBetaExampleModProxy proxy;
 
